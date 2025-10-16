@@ -3,6 +3,7 @@ from turtle import Turtle
 class BallForGame(Turtle):
     def __init__(self):
         super().__init__()
+        self.penup()
         self.showturtle()
         self.color("white")
         self.shape("circle")
