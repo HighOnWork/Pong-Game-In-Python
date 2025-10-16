@@ -7,3 +7,4 @@ class MyScreen:
         self.screen.bgcolor("black")
         self.screen.setup(600, 600)
         self.screen.tracer(0)
+        self.screen.listen()

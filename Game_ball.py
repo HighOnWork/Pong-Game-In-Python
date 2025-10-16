@@ -3,9 +3,10 @@ from turtle import Turtle
 class BallForGame(Turtle):
     def __init__(self):
         super().__init__()
-        self.speed("fastest")
-        self.hideturtle()
-        self.color("white", "white")
-        self.begin_fill()
-        self.circle(5)
-        self.end_fill()
+        self.showturtle()
+        self.color("white")
+        self.shape("circle")
+        self.x_move = 10
+
+    def ball_move(self):
+        self.goto(self.xcor() + self.x_move, self.ycor())
