@@ -13,6 +13,9 @@ my_score = ScoreboardGame()
 ping_pong_ball = BallForGame()
 
 def game_loop():
+    Dist_from_left = ping_pong_ball.distance(Racket_left)
+    Dist_from_Right = ping_pong_ball.distance(Racket_right)
+    ping_pong_ball.ball_physics(dist_value_l=Dist_from_left, dist_value_r=Dist_from_Right)
     if ping_pong_ball.xcor() >= 280:
         return None
     ping_pong_ball.ball_move()
