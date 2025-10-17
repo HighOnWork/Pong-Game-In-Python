@@ -8,9 +8,11 @@ class RacketsForGame(Turtle):
     def __init__(self):
         super().__init__()
         self.penup()
+        self.color("black")
+        self.pencolor("black")
+        self.rectangle()
+        self.shape("rectangle")
         self.color("white")
-        self.pencolor("white")
-        self.hideturtle()
 
     def location(self, side):
         if side == 'right':
@@ -31,6 +33,12 @@ class RacketsForGame(Turtle):
         self.end_fill()
         turtle.update()
         turtle.register_shape("rectangle", self.get_poly())
-    def change_turtle(self):
-        self.shape("rectangle")
-       
+
+    def move_up(self):
+        self.showturtle()
+        self.seth(90)
+        self.forward(10)
+    def move_down(self):
+        self.showturtle()
+        self.seth(270)
+        self.forward(10)
