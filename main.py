@@ -26,6 +26,7 @@ Racket_right.location('right')
 Racket_right.rectangle()
 Racket_left.location('left')
 Racket_left.rectangle()
+Racket_left.change_turtle()
 turtle.update()
 
 game_loop()

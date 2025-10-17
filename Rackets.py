@@ -19,6 +19,7 @@ class RacketsForGame(Turtle):
             self.goto(-297, 0)
     def rectangle(self):
         self.begin_fill()
+        self.begin_poly()
         self.forward(RECTANGLE_BREADTH)
         self.seth(90)
         self.forward(RECTANGLE_HEIGHT)
@@ -26,6 +27,10 @@ class RacketsForGame(Turtle):
         self.forward(RECTANGLE_BREADTH)
         self.seth(270)
         self.forward(RECTANGLE_HEIGHT)
+        self.end_poly()
         self.end_fill()
         turtle.update()
-
+        turtle.register_shape("rectangle", self.get_poly())
+    def change_turtle(self):
+        self.shape("rectangle")
+       
