@@ -10,16 +10,15 @@ new_screen = MyScreen()
 Racket_left = RacketsForGame()
 Racket_right = RacketsForGame() 
 ping_pong_ball = BallForGame()
+score_on_both_sides = ScoreboardGame()
 
 def game_loop():
     Racket_left.coordinates('left')
     Racket_right.coordinates('right')
     if Racket_left.rectangle_top_y >= ping_pong_ball.ycor() >= Racket_left.rectangle_bottom_y and Racket_left.rectangle_other_x >= ping_pong_ball.xcor() >= Racket_left.rectangle_x:
         ping_pong_ball.ball_physics()
-        print("hit")
     if Racket_right.rectangle_top_y >= ping_pong_ball.ycor() >= Racket_right.rectangle_bottom_y and Racket_right.rectangle_other_x >= ping_pong_ball.xcor() >= Racket_right.rectangle_x:
         ping_pong_ball.ball_physics()
-        print("hit")
     new_screen.screen.onkeypress(Racket_left.move_up, "w")
     new_screen.screen.onkeypress(Racket_left.move_down, "s")
     new_screen.screen.onkeypress(Racket_right.move_up, "Up")
