@@ -18,7 +18,7 @@ class RacketsForGame(Turtle):
         if side == 'right':
             self.goto(280, 0)
         else:
-            self.goto(-297, 0)
+            self.goto(-280, 0)
     def rectangle(self):
         self.begin_fill()
         self.begin_poly()
@@ -35,10 +35,8 @@ class RacketsForGame(Turtle):
         turtle.register_shape("rectangle", self.get_poly())
 
     def move_up(self):
-        self.showturtle()
-        self.seth(90)
-        self.forward(10)
+        new_y = self.ycor() + 20
+        self.goto(self.xcor(), new_y)
     def move_down(self):
-        self.showturtle()
-        self.seth(270)
-        self.forward(10)
+        new_y = self.ycor() - 20
+        self.goto(self.xcor(), new_y)
