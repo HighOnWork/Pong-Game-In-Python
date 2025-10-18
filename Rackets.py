@@ -14,11 +14,13 @@ class RacketsForGame(Turtle):
         self.shape("rectangle")
         self.color("white")
 
+
     def location(self, side):
         if side == 'right':
             self.goto(280, 0)
         else:
             self.goto(-280, 0)
+
     def rectangle(self):
         self.begin_fill()
         self.begin_poly()
@@ -37,6 +39,16 @@ class RacketsForGame(Turtle):
     def move_up(self):
         new_y = self.ycor() + 20
         self.goto(self.xcor(), new_y)
+        self.coordinates()
     def move_down(self):
         new_y = self.ycor() - 20
         self.goto(self.xcor(), new_y)
+        self.coordinates()
+    def coordinates(self, side):
+            self.rectangle_top_y = self.ycor() + 10
+            self.rectangle_bottom_y = self.ycor() - 60
+            self.rectangle_x = self.xcor() - 10
+            if side == 'left':
+                self.rectangle_other_x = self.xcor() + 10
+            else:    
+                self.rectangle_other_x = self.xcor() + 20

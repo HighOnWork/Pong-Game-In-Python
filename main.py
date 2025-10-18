@@ -8,19 +8,23 @@ from Rackets import RacketsForGame
 
 new_screen = MyScreen()
 Racket_left = RacketsForGame()
-Racket_right = RacketsForGame()
-my_score = ScoreboardGame()
+Racket_right = RacketsForGame() 
 ping_pong_ball = BallForGame()
 
 def game_loop():
-    Dist_from_left = ping_pong_ball.distance(Racket_left)
-    Dist_from_Right = ping_pong_ball.distance(Racket_right)
-    ping_pong_ball.ball_physics(dist_value_l=Dist_from_left, dist_value_r=Dist_from_Right)
+    Racket_left.coordinates('left')
+    Racket_right.coordinates('right')
+    if Racket_left.rectangle_top_y >= ping_pong_ball.ycor() >= Racket_left.rectangle_bottom_y and Racket_left.rectangle_other_x >= ping_pong_ball.xcor() >= Racket_left.rectangle_x:
+        ping_pong_ball.ball_physics()
+        print("hit")
+    if Racket_right.rectangle_top_y >= ping_pong_ball.ycor() >= Racket_right.rectangle_bottom_y and Racket_right.rectangle_other_x >= ping_pong_ball.xcor() >= Racket_right.rectangle_x:
+        ping_pong_ball.ball_physics()
+        print("hit")
     new_screen.screen.onkeypress(Racket_left.move_up, "w")
     new_screen.screen.onkeypress(Racket_left.move_down, "s")
     new_screen.screen.onkeypress(Racket_right.move_up, "Up")
     new_screen.screen.onkeypress(Racket_right.move_down, "Down")
-    if ping_pong_ball.xcor() >= 280:
+    if ping_pong_ball.xcor() >= 280 or ping_pong_ball.xcor() <= -290:
         return None
     ping_pong_ball.ball_move()
     new_screen.screen.update()
