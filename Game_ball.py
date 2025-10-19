@@ -18,12 +18,18 @@ class BallForGame(Turtle):
         else:
             self.backward(self.x_move)
     
-    def ball_physics(self):
+    def ball_physics(self, side):
         new_angle = 180 - ROTATION_VALUE
         if new_angle == 0:
             new_angle = 90
-        if new_angle <= 90:
-            self.left(new_angle)
+        if side == 'right':
+            if new_angle <= 90:
+                self.left(new_angle)
+            else:
+                self.right(new_angle)
         else:
-            self.right(new_angle)
+            if new_angle <= 90:
+                self.right(new_angle)
+            else:
+                self.left(new_angle)
         self.x_move *= -1
