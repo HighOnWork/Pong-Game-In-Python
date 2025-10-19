@@ -13,6 +13,7 @@ ping_pong_ball = BallForGame()
 score_on_both_sides = ScoreboardGame()
 
 def game_loop():
+    score_on_both_sides.score()
     ping_pong_ball.if_on_top_or_bottom()
     Racket_left.coordinates('left')
     Racket_right.coordinates('right')
@@ -24,8 +25,12 @@ def game_loop():
     new_screen.screen.onkeypress(Racket_left.move_down, "s")
     new_screen.screen.onkeypress(Racket_right.move_up, "Up")
     new_screen.screen.onkeypress(Racket_right.move_down, "Down")
-    if ping_pong_ball.xcor() >= 280 or ping_pong_ball.xcor() <= -290:
-        return None
+    if ping_pong_ball.xcor() >= 280:
+        score_on_both_sides.left_score() 
+        ping_pong_ball.goto(0, 0)
+    elif ping_pong_ball.xcor() <= -290:
+        score_on_both_sides.right_score()
+        ping_pong_ball.goto(0, 0)
     ping_pong_ball.ball_move()
     new_screen.screen.update()
     new_screen.screen.ontimer(game_loop, 50)
