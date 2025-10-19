@@ -43,4 +43,3 @@ turtle.update()
 game_loop()
 
 new_screen.screen.mainloop()
-
