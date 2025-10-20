@@ -6,6 +6,7 @@ from Scoreboard import ScoreboardGame
 from Game_ball import BallForGame
 from Rackets import RacketsForGame
 
+
 new_screen = MyScreen()
 Racket_left = RacketsForGame()
 Racket_right = RacketsForGame() 
@@ -25,6 +26,7 @@ def game_loop():
     new_screen.screen.onkeypress(Racket_left.move_down, "s")
     new_screen.screen.onkeypress(Racket_right.move_up, "Up")
     new_screen.screen.onkeypress(Racket_right.move_down, "Down")
+    new_screen.screen.onkeypress(exit, "Escape")
     if ping_pong_ball.xcor() >= 280:
         score_on_both_sides.left_score() 
         ping_pong_ball.goto(0, 0)
