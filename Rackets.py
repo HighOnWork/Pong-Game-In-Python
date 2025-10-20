@@ -46,7 +46,10 @@ class RacketsForGame(Turtle):
         self.coordinates()
     def coordinates(self, side):
             self.rectangle_top_y = self.ycor() + 10
-            self.rectangle_bottom_y = self.ycor() - 60
+            if side == 'right':
+                self.rectangle_bottom_y = self.ycor() - 62
+            else:
+                self.rectangle_bottom_y = self.ycor() - 60
             self.rectangle_x = self.xcor() - 10
             if side == 'left':
                 self.rectangle_other_x = self.xcor() + 10

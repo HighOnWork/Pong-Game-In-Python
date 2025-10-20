@@ -30,9 +30,11 @@ def game_loop():
     if ping_pong_ball.xcor() >= 280:
         score_on_both_sides.left_score() 
         ping_pong_ball.goto(0, 0)
+        ping_pong_ball.x_move = 10
     elif ping_pong_ball.xcor() <= -290:
         score_on_both_sides.right_score()
         ping_pong_ball.goto(0, 0)
+        ping_pong_ball.x_move = 10
     ping_pong_ball.ball_move()
     new_screen.screen.update()
     new_screen.screen.ontimer(game_loop, 50)

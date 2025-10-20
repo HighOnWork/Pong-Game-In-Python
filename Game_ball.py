@@ -20,6 +20,7 @@ class BallForGame(Turtle):
         new_heading = 180 - self.heading()
         new_heading += random.randint(-10, 10)
         self.setheading(new_heading % 360)
+        self.x_move += 1
 
     def if_on_top_or_bottom(self):
         if self.ycor() <= -290:
